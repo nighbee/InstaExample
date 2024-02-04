@@ -17,22 +17,17 @@ class createAccount : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.createnewacc.setOnClickListener {
-            savePerson()
+            val name = binding.name.text.toString()
+            val email = binding.emailenter.text.toString()
+            val age = binding.age.text.toString()
+            val password = binding.passwordenter.text.toString()
+
+            val intent = Intent(this, homePage::class.java)
+            intent.putExtra("firstName", name)
+            intent.putExtra("lastName", email)
+            intent.putExtra("age", age)
+            intent.putExtra("nickname", password)
+            startActivity(intent)
         }
-    }
-
-    private fun savePerson() {
-        val name = binding.name.text.toString().trim()
-        val age = binding.age.text.toString().toInt()
-        val email = binding.emailenter.text.toString().trim()
-        val password = binding.passwordenter.text.toString().trim()
-
-        val person = Person(name, age, email, password)
-        personList.add(person)
-
-        val intent = Intent(this, homePage::class.java)
-        intent.putParcelableArrayListExtra("personList", ArrayList(personList))
-        intent.putExtra("selectedPersonIndex", personList.size - 1)
-        startActivity(intent)
     }
 }

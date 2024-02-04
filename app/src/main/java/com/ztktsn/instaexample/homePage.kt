@@ -13,17 +13,15 @@ class homePage : AppCompatActivity() {
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val personList = intent.getParcelableArrayListExtra<Person>("personList")?.filterNotNull()
+        // Retrieve data from the intent
+        val firstName = intent.getStringExtra("firstName")
+        val email = intent.getStringExtra("lastName")
+        val age = intent.getStringExtra("age")
+        val password = intent.getStringExtra("nickname")
 
-        val selectedPersonIndex = intent.getIntExtra("selectedPersonIndex", -1)
-
-        if (selectedPersonIndex != -1 && selectedPersonIndex < personList?.size ?: 0) {
-            val selectedPerson = personList?.get(selectedPersonIndex)
-
-            binding.name.text = selectedPerson?.name
-            binding.age.text = selectedPerson?.age.toString()
-            binding.email.text = selectedPerson?.email
-            binding.password.text = selectedPerson?.password
-        }
+        binding.name.text = "$firstName"
+        binding.age.text = "$age"
+        binding.password.text = "A $email"
+        binding.email.text = " $email"
     }
-}
+    }
