@@ -14,14 +14,14 @@ class homePage : AppCompatActivity() {
         setContentView(binding.root)
 
         // Retrieve data from the intent
-        val firstName = intent.getStringExtra("firstName")
-        val email = intent.getStringExtra("lastName")
+        val firstName = intent.getStringExtra("name")
+        val email = intent.getStringExtra("email")
         val age = intent.getStringExtra("age")
-        val password = intent.getStringExtra("nickname")
+        val password = intent.getStringExtra("password")
 
         binding.name.text = "$firstName"
         binding.age.text = "$age"
-        binding.password.text = "A $email"
+        binding.password.text = "$password"
         binding.email.text = " $email"
     }
     }

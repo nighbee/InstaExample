@@ -23,10 +23,10 @@ class createAccount : AppCompatActivity() {
             val password = binding.passwordenter.text.toString()
 
             val intent = Intent(this, homePage::class.java)
-            intent.putExtra("firstName", name)
-            intent.putExtra("lastName", email)
+            intent.putExtra("name", name)
+            intent.putExtra("email", email)
             intent.putExtra("age", age)
-            intent.putExtra("nickname", password)
+            intent.putExtra("password", password)
             startActivity(intent)
         }
     }
